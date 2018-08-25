@@ -11,7 +11,7 @@ namespace ex_binding
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new pLogIn();
         }
 
         protected override void OnStart()
