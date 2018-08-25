@@ -27,6 +27,8 @@ namespace ex_binding
             {
                 DisplayAlert("Lỗi", "Không tìm thấy User: " + txtUser.Text, "OK");
                 txtUser.Focus();
+
+                
             }
         }
     }
