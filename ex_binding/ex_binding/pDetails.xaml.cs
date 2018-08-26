@@ -19,13 +19,16 @@ namespace ex_binding
 
         public pDetails(clsMain d)
         {
+            //dùng bindingcontext của ms, gắn dữ liêu trong file xaml
+            BindingContext = d;
+
             InitializeComponent();
 
-            lblName.Text = d.Name;
-            lblTitle.Text = d.Title;
-            lblPhoneNumber.Text = d.PhoneNumber;
-            lblAddress.Text = d.Address;
-            img1.Source = new Uri(d.ImagePath);
+            //lblName.Text = d.Name;
+            //lblTitle.Text = d.Title;
+            //lblPhoneNumber.Text = d.PhoneNumber;
+            //lblAddress.Text = d.Address;
+            //img1.Source = new Uri(d.ImagePath);
         }
     }
 }

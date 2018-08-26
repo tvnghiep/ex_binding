@@ -12,6 +12,7 @@ namespace ex_binding
             InitializeComponent();
 
             MainPage = new pLogIn();
+            //MainPage = new pRotation();
         }
 
         protected override void OnStart()

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ex_binding.pRotation">
+    <ContentPage.Content>
+        <StackLayout>
+            <Slider x:Name="slider1" BackgroundColor="Black" 
+                    Minimum="0" Maximum ="360"></Slider>
+            
+            <Label Text="Welcome to Xamarin.Forms!" x:Name="lblTitle"
+                Rotation="{Binding Source={x:Reference slider1},Path=Value}"  />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

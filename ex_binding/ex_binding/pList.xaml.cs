@@ -32,12 +32,22 @@ namespace ex_binding
             };
 
             lvList.ItemsSource = lDoctor;
-		}
+        }
+
+        private void OnAppearing()
+        {
+            base.OnAppearing();
+
+            
+
+            
+        }
 
         private void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             clsMain m = (clsMain ) e.Item;
             Navigation.PushAsync(new pDetails (m));
         }
+
     }
 }
