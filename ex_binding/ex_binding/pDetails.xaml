@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Chi tiết (BindingContext)"
              x:Class="ex_binding.pDetails">
+    <ContentPage.ToolbarItems >
+        <ToolbarItem x:Name="Save" Text="Save" Clicked="Save_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Image x:Name="img1" Source="{Binding ImagePath}"/>
             <Entry x:Name="txtName" HorizontalTextAlignment="Center"  Text="{Binding Name}" />
             <Entry x:Name="txtTitle" Text="{Binding Title}"/>
-            <Entry x:Name="txtPhoneNumber" Text="{Binding PhoneNumber}}" />
+            <Entry x:Name="txtPhoneNumber" Text="{Binding PhoneNumber}" />
             <Entry x:Name="txtAddress" Text="{Binding Address}"/>
             
         </StackLayout>
