@@ -17,7 +17,7 @@ namespace ex_binding
 			InitializeComponent ();
 		}
 
-        public pDetails_Manual(clsMain d)
+        public pDetails_Manual(clsDoctor d)
         {
             //BindingContext = d;
 

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ex_binding
 {
-    public class clsMain : INotifyPropertyChanged
+    public class clsDoctor : INotifyPropertyChanged
     {
         private string _name;
         private string _title;

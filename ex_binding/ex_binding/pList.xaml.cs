@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acr.UserDialogs;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,27 +15,31 @@ namespace ex_binding
 	public partial class pList : ContentPage
 	{
         //List<clsMain> lDoctor;
-        public static ObservableCollection <clsMain> lDoctor;
+        public static ObservableCollection <clsDoctor> lDoctor;
 
         public pList ()
 		{
 			InitializeComponent ();
 
+            UserDialogs.Instance.ShowLoading();
+
             //lDoctor = new List<clsMain>()
-            lDoctor = new ObservableCollection<clsMain>()
+            lDoctor = new ObservableCollection<clsDoctor>()
             {
-                new clsMain(){Name="Nguyen Van A", Address  ="210 NVA", Title ="Bac Si", PhoneNumber ="0123"
+                new clsDoctor(){Name="Nguyen Van A", Address  ="210 NVA", Title ="Bac Si", PhoneNumber ="0123"
                 , ImagePath ="https://cdn.doctailieu.com/images/2018/04/18/xem-va-tai-tranh-to-mau-bac-si-cho-be-nuoi-duong-uoc-mo-3.jpg"
                 },
-                new clsMain(){Name="Nguyen Van B", Address  ="211 NVA", Title ="Y Si", PhoneNumber ="012B"
+                new clsDoctor(){Name="Nguyen Van B", Address  ="211 NVA", Title ="Y Si", PhoneNumber ="012B"
                 , ImagePath ="https://bacsinguyenxuanquang.files.wordpress.com/2009/03/evowa.jpg?w=640"
                 },
-                new clsMain(){Name="Nguyen Van C", Address  ="211 C", Title ="Nha Si", PhoneNumber ="012C"
+                new clsDoctor(){Name="Nguyen Van C", Address  ="211 C", Title ="Nha Si", PhoneNumber ="012C"
                 , ImagePath ="https://cdn.doctailieu.com/images/2018/04/18/xem-va-tai-tranh-to-mau-bac-si-cho-be-nuoi-duong-uoc-mo-1.jpg"
                 }
             };
 
             lvList.ItemsSource = lDoctor;
+
+            UserDialogs.Instance.HideLoading();
         }
 
         private void OnAppearing()
@@ -48,7 +53,7 @@ namespace ex_binding
 
         private void ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            clsMain m = (clsMain ) e.Item;
+            clsDoctor m = (clsDoctor ) e.Item;
             Navigation.PushAsync(new pDetails (m));
         }
 
@@ -57,7 +62,7 @@ namespace ex_binding
             if (await  DisplayAlert("Confirm", "Are you delete current selected Item?", "Yes", "No"))
             {
                 var bindingContext = ((MenuItem)sender).BindingContext;
-                var doctor = (clsMain)bindingContext;
+                var doctor = (clsDoctor)bindingContext;
                 lDoctor.Remove(doctor);
             }
                       
@@ -66,7 +71,7 @@ namespace ex_binding
 
         private void Add_Clicked(object sender, EventArgs e)
         {
-            clsMain m = new clsMain() ;
+            clsDoctor m = new clsDoctor() ;
             Navigation.PushAsync(new pDetails(m,"add"));
         }
     }

@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using Acr.UserDialogs;
 
 namespace ex_binding
 {
@@ -15,7 +16,7 @@ namespace ex_binding
 	public partial class ProfileView : ContentPage
 	{
 
-        public static string token = "EAAFifG9seioBAJJyaZB3EjcDZCAKXcq21YvSkDYvHdRnMjqMHQu3yy6Yrv8IUbR2lE5dFztP9t0lygYERrZACpVvVtBAnMFB0BEsCCdBJxQHqp2ZCv7SaqpiWdNREZBSSXEkeZBYZCFZBokigXn4dWeYQR0XQdfdqBSadbwZA5EteO7ZCZB0dv9yWZBq6mE5tqbrWPELVEjVyPwmSgZDZD";
+        public static string token = "EAAFifG9seioBADExvZAH2O9N4FrDrNwbvHZBgp83mXpgWsIRDT8ozKS4KvoqaFZBFHwuZB4prt38bYN6Rz1Np5kGC93crtSCdMvgpvHu48oihBmZBQXDmELpwIlpHAlGZBOtbbJEc5ZBDCkRKlCilBcTpC9YjHlULUjSZBGoDOwXBtD4vAwZCPbRyGyOcVLqIMfRiC7ecKBuXsQZDZD";
 
 		public ProfileView ()
 		{
@@ -25,6 +26,9 @@ namespace ex_binding
         protected override async  void OnAppearing()
         {
             base.OnAppearing();
+
+            UserDialogs.Instance.ShowLoading();
+
 
             HttpClient hc1 = new HttpClient();
             var request = new HttpRequestMessage();
@@ -40,6 +44,8 @@ namespace ex_binding
                 clsFB fb= JsonConvert.DeserializeObject<clsFB>(body);
                 BindingContext = fb;
             }
+
+            UserDialogs.Instance.HideLoading();
         }
 
         private void Feed_Clicked(object sender, EventArgs e)

@@ -17,12 +17,12 @@ namespace ex_binding
 			InitializeComponent ();
 		}
 
-        clsMain doctor, doctor1;
+        clsDoctor doctor, doctor1;
 
-        public pDetails(clsMain d)
+        public pDetails(clsDoctor d)
         {
             doctor = d;
-            doctor1 = new clsMain()
+            doctor1 = new clsDoctor()
             {
                 Name = d.Name,
                 Title = d.Title,
@@ -44,12 +44,12 @@ namespace ex_binding
         }
 
         string _mode = "";
-        public pDetails(clsMain d, string mode)
+        public pDetails(clsDoctor d, string mode)
         {
             _mode = mode;
 
             doctor = d;
-            doctor1 = new clsMain()
+            doctor1 = new clsDoctor()
             {
                 Name = "",
                 Title = "",

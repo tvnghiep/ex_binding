@@ -13,7 +13,7 @@ namespace ex_binding
 
             //MainPage = new pLogIn();
             //MainPage = new pRotation();
-            //MainPage = new NavigationPage( new pList());
+            //MainPage = new NavigationPage(new pList());
             MainPage = new NavigationPage(new ProfileView());
         }
 

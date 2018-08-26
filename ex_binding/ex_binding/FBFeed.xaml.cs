@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Acr.UserDialogs;
 
 namespace ex_binding
 {
@@ -24,6 +25,8 @@ namespace ex_binding
         {
             base.OnAppearing();
 
+            UserDialogs.Instance.ShowLoading();
+
             HttpClient hc1 = new HttpClient();
             var request = new HttpRequestMessage();
             request.RequestUri = new Uri("https://graph.facebook.com/v3.1/me?fields=posts");
@@ -38,6 +41,8 @@ namespace ex_binding
                 Feed fbPost = JsonConvert.DeserializeObject<Feed>(body);
                 BindingContext = fbPost;
             }
+
+            UserDialogs.Instance.HideLoading ();
         }
     }
 }
