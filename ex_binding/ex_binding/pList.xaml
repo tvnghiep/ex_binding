@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Danh sách BS"
              x:Class="ex_binding.pList">
+    <!--nút chức năng-->
+    <ContentPage.ToolbarItems >
+        <ToolbarItem x:Name="New" Text="New" Clicked="Add_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
+        
         <ListView x:Name="lvList" SeparatorVisibility="Default" RowHeight="100" HasUnevenRows="True"
                   ItemTapped="ItemTapped" >
             <ListView.ItemTemplate>
@@ -11,7 +17,7 @@
                     <ViewCell>
                         <ViewCell.ContextActions>
                             <MenuItem Text="Delete" Clicked="Delete_Clicked"></MenuItem>
-                            <MenuItem Text="Add" Clicked="Add_Clicked"></MenuItem>
+                            
                         </ViewCell.ContextActions>
                         <StackLayout Orientation="Vertical"  >
                             <Image x:Name="img1" Source="{Binding ImagePath}" ></Image>

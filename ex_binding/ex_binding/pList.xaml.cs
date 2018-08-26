@@ -52,11 +52,15 @@ namespace ex_binding
             Navigation.PushAsync(new pDetails (m));
         }
 
-        private void Delete_Clicked(object sender, EventArgs e)
+        private async void Delete_Clicked(object sender, EventArgs e)
         {
-            var bindingContext = ((MenuItem)sender).BindingContext;
-            var doctor = (clsMain)bindingContext;
-            lDoctor.Remove(doctor);
+            if (await  DisplayAlert("Confirm", "Are you delete current selected Item?", "Yes", "No"))
+            {
+                var bindingContext = ((MenuItem)sender).BindingContext;
+                var doctor = (clsMain)bindingContext;
+                lDoctor.Remove(doctor);
+            }
+                      
 
         }
 

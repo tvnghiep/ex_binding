@@ -19,6 +19,7 @@ namespace ex_binding.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Acr.UserDialogs.UserDialogs.Init(this);
             LoadApplication(new App());
         }
     }

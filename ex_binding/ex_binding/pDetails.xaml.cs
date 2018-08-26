@@ -34,6 +34,7 @@ namespace ex_binding
             BindingContext = doctor1;
 
             InitializeComponent();
+            Title = "Edit Doctor";
 
             //lblName.Text = d.Name;
             //lblTitle.Text = d.Title;
@@ -60,7 +61,7 @@ namespace ex_binding
             BindingContext = doctor1;
 
             InitializeComponent();
-
+            Title = "New Doctor";
             //lblName.Text = d.Name;
             //lblTitle.Text = d.Title;
             //lblPhoneNumber.Text = d.PhoneNumber;
@@ -74,6 +75,8 @@ namespace ex_binding
             {
                 pList.lDoctor.Add(doctor1);
                 Navigation.PopAsync();//trở về trang trước
+
+                Acr.UserDialogs.UserDialogs.Instance.Toast("Added...");
             }
             else
             {
@@ -83,6 +86,8 @@ namespace ex_binding
                 doctor.Address = doctor1.Address;
                 doctor.ImagePath = doctor1.ImagePath;
                 Navigation.PopAsync();//trở về trang trước
+
+                Acr.UserDialogs.UserDialogs.Instance.Toast("Updated...");
             }
             
         }
