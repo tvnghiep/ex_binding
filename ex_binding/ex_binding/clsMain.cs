@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -83,4 +84,56 @@ namespace ex_binding
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
+
+    public partial class clsFB
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("birthday")]
+        public string Birthday { get; set; }
+    }
+
+    public partial class Feed
+    {
+        [JsonProperty("posts")]
+        public Posts Posts { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+    }
+
+    public partial class Posts
+    {
+        [JsonProperty("data")]
+        public List<Data> Data { get; set; }
+
+        [JsonProperty("paging")]
+        public Paging Paging { get; set; }
+    }
+
+    public partial class Data
+    {
+        [JsonProperty("created_time")]
+        public string CreatedTime { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("message", NullValueHandling = NullValueHandling.Ignore)]
+        public string Message { get; set; }
+    }
+
+    public partial class Paging
+    {
+        [JsonProperty("previous")]
+        public string Previous { get; set; }
+
+        [JsonProperty("next")]
+        public string Next { get; set; }
+    }
+
 }
