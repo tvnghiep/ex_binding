@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,15 @@ namespace ex_binding
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class pList : ContentPage
 	{
-        List<clsMain> lDoctor;
+        //List<clsMain> lDoctor;
+        public static ObservableCollection <clsMain> lDoctor;
 
-		public pList ()
+        public pList ()
 		{
 			InitializeComponent ();
 
-            lDoctor = new List<clsMain>()
+            //lDoctor = new List<clsMain>()
+            lDoctor = new ObservableCollection<clsMain>()
             {
                 new clsMain(){Name="Nguyen Van A", Address  ="210 NVA", Title ="Bac Si", PhoneNumber ="0123"
                 , ImagePath ="https://cdn.doctailieu.com/images/2018/04/18/xem-va-tai-tranh-to-mau-bac-si-cho-be-nuoi-duong-uoc-mo-3.jpg"
@@ -49,5 +52,18 @@ namespace ex_binding
             Navigation.PushAsync(new pDetails (m));
         }
 
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+            var bindingContext = ((MenuItem)sender).BindingContext;
+            var doctor = (clsMain)bindingContext;
+            lDoctor.Remove(doctor);
+
+        }
+
+        private void Add_Clicked(object sender, EventArgs e)
+        {
+            clsMain m = new clsMain() ;
+            Navigation.PushAsync(new pDetails(m,"add"));
+        }
     }
 }

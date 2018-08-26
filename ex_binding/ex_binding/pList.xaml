@@ -9,6 +9,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" Clicked="Delete_Clicked"></MenuItem>
+                            <MenuItem Text="Add" Clicked="Add_Clicked"></MenuItem>
+                        </ViewCell.ContextActions>
                         <StackLayout Orientation="Vertical"  >
                             <Image x:Name="img1" Source="{Binding ImagePath}" ></Image>
                             <Label x:Name="lblName" Text="{Binding Name}" ></Label>

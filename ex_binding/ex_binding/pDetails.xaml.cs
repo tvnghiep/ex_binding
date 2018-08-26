@@ -42,14 +42,49 @@ namespace ex_binding
             //img1.Source = new Uri(d.ImagePath);
         }
 
+        string _mode = "";
+        public pDetails(clsMain d, string mode)
+        {
+            _mode = mode;
+
+            doctor = d;
+            doctor1 = new clsMain()
+            {
+                Name = "",
+                Title = "",
+                PhoneNumber = "",
+                Address = "",
+                ImagePath = ""
+            };
+            //dùng bindingcontext của ms, gắn dữ liêu trong file xaml
+            BindingContext = doctor1;
+
+            InitializeComponent();
+
+            //lblName.Text = d.Name;
+            //lblTitle.Text = d.Title;
+            //lblPhoneNumber.Text = d.PhoneNumber;
+            //lblAddress.Text = d.Address;
+            //img1.Source = new Uri(d.ImagePath);
+        }
+
         private void Save_Clicked(object sender, EventArgs e)
         {
-            doctor.Name = doctor1.Name;
-            doctor.Title = doctor1.Title;
-            doctor.PhoneNumber = doctor1.PhoneNumber;
-            doctor.Address = doctor1.Address;
-            doctor.ImagePath = doctor1.ImagePath;
-            Navigation.PopAsync();//trở về trang trước
+            if (_mode == "add")
+            {
+                pList.lDoctor.Add(doctor1);
+                Navigation.PopAsync();//trở về trang trước
+            }
+            else
+            {
+                doctor.Name = doctor1.Name;
+                doctor.Title = doctor1.Title;
+                doctor.PhoneNumber = doctor1.PhoneNumber;
+                doctor.Address = doctor1.Address;
+                doctor.ImagePath = doctor1.ImagePath;
+                Navigation.PopAsync();//trở về trang trước
+            }
+            
         }
     }
 }
